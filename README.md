@@ -13,7 +13,7 @@ Para começar a usar o CDK, é necessário ter o Node.js instalado, o que pode s
 O NVM é uma ferramenta que permite gerenciar facilmente várias versões do Node.js em um único sistema. Ele é útil quando você precisa alternar entre diferentes versões do Node.js para projetos específicos. Com o NVM, você pode instalar, desinstalar e alternar entre diferentes versões do Node.js com facilidade, garantindo compatibilidade com diferentes projetos que podem exigir versões específicas.
 
 1. Instalação do NVM
-Para instalar o NVM, siga as instruções na [documentação oficial: ](github.com/nvm-sh/nvm)
+Para instalar o NVM, siga as instruções na [Clique aqui para visitar o Google](https://www.google.com "Visite o Google")
 
 2. Instalação do Node.js com NVM
 Após instalar o NVM, abra um novo terminal.
