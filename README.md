@@ -61,8 +61,7 @@ Abra um terminal e crie um novo diretório para o seu projeto CDK em Java:
 
 ```hcl
 mkdir meu-projeto-cdk-java
-```
-```hcl
+
 cd meu-projeto-cdk-java
 ```
 3. Inicializar o Projeto CDK em Java:
@@ -93,15 +92,15 @@ cdk deplou nome-do-recurso
 Caso tenha o erro abaixo: 
 
 ```hcl
-current credentials could not be used to assume 'arn:aws:iam::139700633190:role/cdk-hnb659fds-lookup-role-139700633190-us-east-1', but are for the right account. Proceeding anyway.
+current credentials could not be used to assume 'arn:aws:iam::ACCOUNT_ID:role/cdk-hnb659fds-lookup-role-ACCOUNT_ID-us-east-1', but are for the right account. Proceeding anyway.
 
 (To get rid of this warning, please upgrade to bootstrap version >= 8)
 
-current credentials could not be used to assume 'arn:aws:iam::139700633190:role/cdk-hnb659fds-deploy-role-139700633190-us-east-1', but are for the right account. Proceeding anyway.
+current credentials could not be used to assume 'arn:aws:iam::ACCOUNT_ID:role/cdk-hnb659fds-deploy-role-ACCOUNT_ID-us-east-1', but are for the right account. Proceeding anyway.
 
 Vpc: deploying...
 
-current credentials could not be used to assume 'arn:aws:iam::139700633190:role/cdk-hnb659fds-deploy-role-139700633190-us-east-1', but are for the right account. Proceeding anyway.
+current credentials could not be used to assume 'arn:aws:iam::ACCOUNT_ID:role/cdk-hnb659fds-deploy-role-ACCOUNT_ID-us-east-1', but are for the right account. Proceeding anyway.
 
 
 ❌  Vpc failed: Error: Vpc: SSM parameter /cdk-bootstrap/hnb659fds/version not found. Has the environment been bootstrapped? Please run 'cdk bootstrap' (see https://docs.aws.amazon.com/cdk/latest/guide/bootstrapping.html)
