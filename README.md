@@ -84,7 +84,7 @@ cdk list
 - Comando para provisionar o recurso:
 
 ```hcl
-cdk deplou nome-do-recurso
+cdk deploy nome-do-recurso
 ```
 
 ### Troubleshooting
