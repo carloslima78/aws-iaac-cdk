@@ -73,7 +73,7 @@ cdk init app --language java
 4. Abrir o Projeto no seu Editor de Código preferido:
 Agora que o projeto foi criado, você pode abrir o diretório no seu editor de código preferido, como VSCode, IntelliJ IDEA, Eclipse, etc.
 
-## Comandos para Criar os Recursos no AWS CDK definidos no código Java
+## Provisionando os Recursos com CLI do AWS CDK 
 
 - Comando para listar os recursos a serem provisionados:
 
@@ -140,6 +140,26 @@ Se você estiver usando uma conta específica para deployment, certifique-se de 
 Após realizar o bootstrap e verificar as permissões, tente executar o comando cdk deploy novamente para realizar o deployment do seu stack VPC.
 
 Se o problema persistir, verifique se há atualizações disponíveis para o AWS CDK e considere atualizá-lo para a versão mais recente, pois problemas de compatibilidade ou bugs podem ocasionalmente ocorrer em versões específicas.
+
+## Destruindo os Recursos com CLI do AWS CDK 
+
+1. Navegue até o diretório do seu projeto CDK
+Certifique-se de que você está no diretório que contém o seu projeto CDK onde o VpcStack foi definido.
+
+
+Para remover a VPC e as subnets criadas pelo código do AWS CDK, você pode simplesmente destruir o stack que as contém usando o AWS CDK CLI. Isso irá remover todos os recursos definidos no stack, incluindo a VPC e suas subnets. Aqui estão os passos para fazer isso:
+
+1. Navegue até o diretório do seu projeto CDK
+Certifique-se de que você está no diretório que contém o seu projeto CDK onde o VpcStack foi definido.
+
+2. Execute o comando cdk destroy
+Você usará o comando cdk destroy para remover o stack e todos os recursos associados a ele. O comando precisa do nome do stack como argumento. Se você não especificou um nome de stack diferente durante a implantação, o AWS CDK usa o nome da classe como o nome do stack por padrão. Com base no seu código, parece que o nome do stack pode ser simplesmente VpcStack ou uma variação dele, dependendo de como você o implantou.
+
+Para destruir o stack, execute:
+
+```hcl
+cdk destroy nome-do-recurso
+```
 
 ## Recursos que serão utilizados
 
