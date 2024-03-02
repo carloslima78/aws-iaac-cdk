@@ -87,7 +87,13 @@ cdk list
 cdk deploy nome-do-recurso
 ```
 
-### Troubleshooting
+- Comando para imprimir as diferenças entre uma Stack já provisionada com novos recursos planejados
+
+```hcl
+cdk diff
+```
+
+### Troubleshooting: Processo de Bootstrap do AWS CDK.
 
 Caso tenha o erro abaixo: 
 
@@ -160,6 +166,36 @@ Para destruir o stack, execute:
 ```hcl
 cdk destroy nome-do-recurso
 ```
+## Reduzindo custos na criação da VPC
+
+A forma como a VPC foi criada no tópico anterior é a correta, pois irá manter as instâncias do banco de dados do RDS e das aplicações, que ainda serão criadas em sessões mais adiante, dentro de uma rede privada na VPC. Porém, isso utiliza recursos da AWS, como o NatGateway, que é pago por horas de uso (independente se a aplicação recebe requisições ou não), além do tráfego de dados.
+
+Caso você deseje minizar um pouco a posível cobrança da AWS pelos recursos utilizados para a arquitetura sendo montada nesse curso, é possível criar a VPC sem o NatGateway. Isso traz algumas implicações e alterações simples que deverão ser feitas.
+
+A primeira alteração é na criação da VPC. Ao invés de utilizar o default do AWS CDK, como no trecho a seguir:
+
+```hcl
+vpc = Vpc.Builder.create(this, "Vpc01")
+      .maxAzs(3)
+      .build();
+```
+
+Você pode reduzir a quantidade de zonas de disponibilidade que a VPC irá atuar, além de é claro, solicitar que nenhum NatGateway seja criado, como no trecho a seguir:
+
+```hcl
+vpc = Vpc.Builder.create(this, "Vpc01")
+      .maxAzs(2)
+      .natGateways(0)
+      .build();
+```
+
+Perceba que o parâmetro natGateways configurado com o valor 0 instrui o CDK a criar uma VPC sem o NatGateway.
+
+Como dito anteriormente, algumas alterações terão que ser feitas ao longo da criação do projeto, caso você opte por esse caminho. 
+
+Novamente, esse é um passo opcional, caso você queira minizar a cobrança dos custos pela AWS, algo que pode acontecer a forma como a VPC foi criada no projeto, é a correta para aplicações em ambiente de produção.
+
+**IMPORTANTE**: Não utilize essa abordagem de não criar o NAT Gateway em ambiente de produção, pois isso em conjunto com as outras alterações marcadas como opcionais ao longo do curso, farão com que as instâncias fiquem expostas à requisições da Internet. Essa abordagem deve ser feita somente agora durante o curso, para minimizar os custos de infraestrutura.
 
 ## Recursos que serão utilizados
 
